@@ -30,14 +30,14 @@ As you develop your project, you might want to follow one of these two workflows
 
 In test-driven development, you start by writing a failing test. Next, you make the test pass. Finally, you can refactor your code to improve the readability/speed/etc.
 
-1. Add a new test in test_hello.py, which should fail at the moment (e.g. remove the `@unittest.skip` line in [test_hello.py](tests/test_hello.py))
+1. Add a new test in test_hello.py, which should fail at the moment (e.g. remove the `@pytest.mark.skip` line in [test_hello.py](tests/test_hello.py))
 
     ```shell
     $ ./run_tests.sh
     ...
     AttributeError: module 'hello' has no attribute 'new_function'
     ...
-    FAILED (errors=1)
+    === 1 failed, 2 passed in 0.09s ===
     ```
 
 1. Add/change code in hello.py so that the test will pass
@@ -47,9 +47,7 @@ In test-driven development, you start by writing a failing test. Next, you make 
     ```shell
     $ ./run_tests.sh
     ...
-    Ran 2 tests in 0.000s
-
-    OK
+    === 3 passed in 0.09s ===
     ```
 
 1. Add and commit your changes to Git with `git add .` followed by `git commit -m "my commit message"`
@@ -77,7 +75,7 @@ As an alternative to TDD, you can write your code first and add your tests secon
 
     ```
 
-1. Add a new test in [test_hello.py](tests/test_hello.py) to test your new work (e.g. remove the `@unittest.skip` line in test_hello.py)
+1. Add a new test in [test_hello.py](tests/test_hello.py) to test your new work (e.g. remove the `@pytest.mark.skip` line in test_hello.py)
 
 1. Make sure all checks/tests in the project pass and test coverage is high enough
 
