@@ -21,7 +21,7 @@ status=$(($status+$?))
 
 # Run our unit tests with code coverage
 echo "Running unit tests..."
-python -m coverage run --omit="venv/*","tests/*" -m unittest discover tests/
+python -m coverage run --omit="venv/*","tests/*" -m pytest tests/
 status=$(($status+$?))
 
 # Show the lines our tests miss
