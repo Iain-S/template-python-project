@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Keep track of the exit code of each test
+status=0
+
 # Activate our virtual environment
 source venv/bin/activate
 
@@ -7,21 +10,42 @@ source venv/bin/activate
 # To auto-format a file, you can run `python -m black filename.py`
 echo "Running flake8..."
 python -m flake8 --max-line-length=88 --exclude=venv
+status=$(($status+$?))
 
 # Find all .py files (ignoring venv) and check their code style with pylint,
 # using (something close to) Google's default config
 echo "Running pylint..."
 find . -type f -name "*.py" ! -path "./venv/*" | xargs \
     pylint --rcfile=tests/pylintrc
+status=$(($status+$?))
 
 # Run our unit tests with code coverage
 echo "Running unit tests..."
 python -m coverage run --omit="venv/*","tests/*" -m unittest discover tests/
+status=$(($status+$?))
 
 # Show the lines our tests miss
 python -m coverage report --show-missing
+status=$(($status+$?))
 
 # [optional] Check Markdown coding style with Ruby's markdown lint
 # https://github.com/markdownlint/markdownlint
-echo "Running markdown lint..."
-mdl --git-recurse --style tests/mdl_style.rb ./
+if ! command -v mdl &> /dev/null
+then
+  echo "Skipping markdown lint..."
+else
+  echo "Running markdown lint..."
+  # With --git-recurse, mdl only checks version controlled files
+  mdl --git-recurse --style tests/mdl_style.rb ./
+  status=$(($status+$?))
+fi
+
+echo ""
+if [ $status -eq 0 ]
+then
+  echo "All tests passed"
+  exit 0
+else
+  echo "Not all tests passed" >&2
+  exit 1
+fi
