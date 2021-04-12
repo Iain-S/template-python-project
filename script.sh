@@ -5,6 +5,7 @@
 set -o errexit
 
 # Activate our virtual environment
+# shellcheck disable=SC1091
 source venv/bin/activate
 
 # Call our Python script, passing a command line argument

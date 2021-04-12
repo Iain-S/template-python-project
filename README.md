@@ -18,6 +18,8 @@ A template Python project
 
 1. [optional] If you have Ruby, install markdownlint with `gem install mdl`
 
+1. [optional] If you want to lint Bash scripts, install [shellcheck](https://github.com/koalaman/shellcheck#installing)
+
 1. Check that all tests pass with `./run_tests.sh`
 
 1. Read through [hello.py](hello.py), [test_hello.py](tests/test_hello.py), [smp.sh](script.sh), and [run_tests.sh](run_tests.sh), which are all brief but contain important extra info
