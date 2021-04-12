@@ -13,6 +13,8 @@ A template Python project
 1. Clone your fork of this repository (e.g. `git clone https://github.com/your-username/my-project.git`) and `cd` into it
 
 1. Create a virtual environment with `virtualenv venv`
+   
+1. Install the Python development requirements with `pip install -r dev-requirements.txt`
 
 1. Install the Python requirements with `pip install -r requirements.txt`
 
