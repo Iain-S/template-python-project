@@ -3,7 +3,6 @@
 A template Python project
 
 ## Setup Instructions
-
 1. Fork this repository (by clicking this button in GitHub)
 
     ![fork button](images/fork_small.png)
