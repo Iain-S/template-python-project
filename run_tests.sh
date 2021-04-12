@@ -1,4 +1,6 @@
 #!/bin/bash
+#
+# Run all code style checks and Python unit tests
 
 # Keep track of the exit code of each test
 status=0
