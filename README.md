@@ -14,6 +14,8 @@ A template Python project
 
 1. Create a virtual environment with `virtualenv venv` and activate it with `source venv/bin/activate`
 
+1. Install the Python development requirements with `pip install -r dev-requirements.txt`
+
 1. Install the Python requirements with `pip install -r requirements.txt`
 
 1. [optional] If you have Ruby, install markdownlint with `gem install mdl`
