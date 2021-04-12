@@ -2,7 +2,7 @@
 import fire
 
 
-def get_message():
+def get_messag():
     return "I ♡ templates"
 
 
